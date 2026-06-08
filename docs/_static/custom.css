@@ -226,6 +226,7 @@ p, li, .wy-nav-content {
 /* Hide the actual RST section titles but keep them in the TOC */
 #introduction > h2, #introduction > h3, #introduction > h4,
 #material-list > h2, #material-list > h3, #material-list > h4,
+#resource-download > h2, #resource-download > h3, #resource-download > h4,
 #remove-the-protective-film > h2, #remove-the-protective-film > h3, #remove-the-protective-film > h4,
 #assemble-the-motor > h2, #assemble-the-motor > h3, #assemble-the-motor > h4,
 #assemble-the-line-tracking > h2, #assemble-the-line-tracking > h3, #assemble-the-line-tracking > h4,
