@@ -1,4 +1,4 @@
-4.Play Play With Robot  
+4.Play With Robot  
 ===============
 
 .. raw:: html
