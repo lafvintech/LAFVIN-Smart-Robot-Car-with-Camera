@@ -46,6 +46,7 @@ namespace ModeConfig {
         constexpr uint8_t BACKWARD_SPEED = 80;      // Backward Speed
         constexpr uint8_t FORWARD_SPEED = 100;      // Forward Speed
     }
+    
 }
 
 /**
