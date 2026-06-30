@@ -1,2 +1,16 @@
 /Read me first, before use.docx
 /scripts
+
+# Python virtual environments
+.rtd-env/
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Sphinx build output
+_autobuild/
+docs/_build/
+docs/.doctrees/
