@@ -32,8 +32,8 @@ namespace ModeConfig {
     // Obstacle Avoidance Mode Configuration
     namespace ObstacleAvoid {
         constexpr uint8_t DETECTION_DISTANCE = 20;  // Detection Distance (cm)
-        constexpr uint8_t MOVE_SPEED = 100;         // Move Speed
-        constexpr uint8_t TURN_SPEED = 150;         // Turn Speed
+        constexpr uint8_t MOVE_SPEED = 70;         // Move Speed
+        constexpr uint8_t TURN_SPEED = 70;         // Turn Speed
         constexpr uint16_t BACKUP_TIME = 100;       // Backup Time (ms)
         constexpr uint16_t TURN_TIME = 50;          // Turn Time (ms)
     }
@@ -96,18 +96,6 @@ public:
      */
     void executeStandby();
     
-    // ========== Configuration Functions ==========
-    
-    /**
-     * @brief Set Line Following Speed
-     */
-    void setLineFollowSpeed(uint8_t normalSpeed, uint8_t turnSpeed);
-    
-    /**
-     * @brief Set Obstacle Avoidance Distance
-     */
-    void setObstacleDistance(uint8_t distanceCm);
-    
     /**
      * @brief Reset Line Following State
      */
@@ -117,27 +105,14 @@ private:
     // Motor Driver System Pointer
     MotorDriverSystem* m_motorSystem;
     
-    // ========== Line Following Mode State ==========
-    struct {
-        uint8_t normalSpeed;        // Normal Speed
-        uint8_t turnSpeed;          // Turn Speed
-        uint8_t sharpTurnSpeed;     // Sharp Turn Speed
-        uint32_t scanStartTime;     // Scan Start Time
-        bool isScanning;            // Is Scanning
-        bool lostLine;              // Lost Line
-    } m_lineFollow;
-    
     // ========== Obstacle Avoidance Mode State ==========
     struct {
-        uint8_t detectionDistance;  // Detection Distance
-        uint8_t moveSpeed;          // Move Speed
         bool isFirstEnter;          // Is First Enter
     } m_obstacleAvoid;
     
     // ========== Target Following Mode State ==========
     struct {
         bool isFirstEnter;          // Is First Enter
-        uint16_t lastDistance;      // Last Distance
     } m_targetFollow;
     
     // ========== Helper Functions ==========

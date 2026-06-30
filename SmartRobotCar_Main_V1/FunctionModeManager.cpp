@@ -12,23 +12,12 @@
  */
 void FunctionModeManager::initialize(MotorDriverSystem* motorSystem) {
     m_motorSystem = motorSystem;
-    
-    // Initialize Line Follow Mode State
-    m_lineFollow.normalSpeed = ModeConfig::LineFollow::NORMAL_SPEED;
-    m_lineFollow.turnSpeed = ModeConfig::LineFollow::TURN_SPEED;
-    m_lineFollow.sharpTurnSpeed = ModeConfig::LineFollow::SHARP_TURN_SPEED;
-    m_lineFollow.scanStartTime = 0;
-    m_lineFollow.isScanning = false;
-    m_lineFollow.lostLine = false;
-    
+
     // Initialize Obstacle Avoidance Mode State
-    m_obstacleAvoid.detectionDistance = ModeConfig::ObstacleAvoid::DETECTION_DISTANCE;
-    m_obstacleAvoid.moveSpeed = ModeConfig::ObstacleAvoid::MOVE_SPEED;
     m_obstacleAvoid.isFirstEnter = true;
     
     // Initialize Target Following Mode State
     m_targetFollow.isFirstEnter = true;
-    m_targetFollow.lastDistance = 0;
 }
 
 /**
@@ -52,31 +41,31 @@ void FunctionModeManager::executeLineFollowing() {
     
     if (!detL && detM && !detR) {
         // Only middle detected, go straight
-        m_motorSystem->move(MovementType::Forward, 100);
+        m_motorSystem->move(MovementType::Forward, ModeConfig::LineFollow::NORMAL_SPEED);
         timestamp = true;
         BlindDetection = true;
     }
     else if (detL && detM && !detR) {
         // Left + Middle, turn left 60
-        m_motorSystem->move(MovementType::TurnLeft, 60);
+        m_motorSystem->move(MovementType::TurnLeft, ModeConfig::LineFollow::TURN_SPEED);
         timestamp = true;
         BlindDetection = true;
     }
     else if (detL && !detM && !detR) {
         // Only Left, turn left 90
-        m_motorSystem->move(MovementType::TurnLeft, 90);
+        m_motorSystem->move(MovementType::TurnLeft, ModeConfig::LineFollow::SHARP_TURN_SPEED);
         timestamp = true;
         BlindDetection = true;
     }
     else if (!detL && !detM && detR) {
         // Only Right, turn right 90
-        m_motorSystem->move(MovementType::TurnRight, 90);
+        m_motorSystem->move(MovementType::TurnRight, ModeConfig::LineFollow::SHARP_TURN_SPEED);
         timestamp = true;
         BlindDetection = true;
     }
     else if (!detL && detM && detR) {
         // Middle + Right, turn right 60
-        m_motorSystem->move(MovementType::TurnRight, 60);
+        m_motorSystem->move(MovementType::TurnRight, ModeConfig::LineFollow::TURN_SPEED);
         timestamp = true;
         BlindDetection = true;
     }
@@ -99,13 +88,14 @@ void FunctionModeManager::executeLineFollowing() {
         
         if ((isInRange(elapsed, 0, 200) || isInRange(elapsed, 1600, 2000)) && BlindDetection == true) {
             // Scan right
-            m_motorSystem->move(MovementType::TurnRight, 100);
+            m_motorSystem->move(MovementType::TurnRight, ModeConfig::LineFollow::NORMAL_SPEED);
         }
         else if (isInRange(elapsed, 200, 1600) && BlindDetection == true) {
             // Scan left
-            m_motorSystem->move(MovementType::TurnLeft, 100);
+            m_motorSystem->move(MovementType::TurnLeft, ModeConfig::LineFollow::NORMAL_SPEED);
         }
-        else if (isInRange(elapsed, 3000, 3500)) {
+        else if (isInRange(elapsed, ModeConfig::LineFollow::SCAN_TIMEOUT_MS,
+                           ModeConfig::LineFollow::SCAN_TIMEOUT_MS + 500)) {
             // Scan timeout, stop
             BlindDetection = false;
             m_motorSystem->stop();
@@ -130,7 +120,7 @@ void FunctionModeManager::executeObstacleAvoidance() {
     uint16_t distance = sensors.ultrasonic.distanceCm;
     
     // If obstacle detected
-    if (distance > 0 && distance <= m_obstacleAvoid.detectionDistance) {
+    if (distance > 0 && distance <= ModeConfig::ObstacleAvoid::DETECTION_DISTANCE) {
         // Stop
         m_motorSystem->stop();
         
@@ -143,18 +133,18 @@ void FunctionModeManager::executeObstacleAvoidance() {
             uint16_t dist = m_motorSystem->readUltrasonicDistance();
             
             // If distance > 20, immediately choose this direction
-            if (dist > m_obstacleAvoid.detectionDistance) {
+            if (dist > ModeConfig::ObstacleAvoid::DETECTION_DISTANCE) {
                 m_motorSystem->stop();
                 
                 switch (i) {
                     case 1: // 30° Right side clear
-                        m_motorSystem->move(MovementType::TurnRight, m_obstacleAvoid.moveSpeed);
+                        m_motorSystem->move(MovementType::TurnRight, ModeConfig::ObstacleAvoid::TURN_SPEED);
                         break;
                     case 3: // 90° Front clear
-                        m_motorSystem->move(MovementType::Forward, m_obstacleAvoid.moveSpeed);
+                        m_motorSystem->move(MovementType::Forward, ModeConfig::ObstacleAvoid::MOVE_SPEED);
                         break;
                     case 5: // 150° Left side clear
-                        m_motorSystem->move(MovementType::TurnLeft, m_obstacleAvoid.moveSpeed);
+                        m_motorSystem->move(MovementType::TurnLeft, ModeConfig::ObstacleAvoid::TURN_SPEED);
                         break;
                 }
                 safeDelay(ModeConfig::ObstacleAvoid::TURN_TIME);
@@ -167,10 +157,10 @@ void FunctionModeManager::executeObstacleAvoidance() {
                 
                 // If last angle (150°) and still blocked
                 if (i == 5) {
-                    // Back up at 150 speed, turn right at 150 speed
-                    m_motorSystem->move(MovementType::Backward, 150);
+                    // Back up and turn using the configured obstacle-avoid turn speed.
+                    m_motorSystem->move(MovementType::Backward, ModeConfig::ObstacleAvoid::MOVE_SPEED);
                     safeDelay(ModeConfig::ObstacleAvoid::BACKUP_TIME);
-                    m_motorSystem->move(MovementType::TurnRight, 150);
+                    m_motorSystem->move(MovementType::TurnRight, ModeConfig::ObstacleAvoid::TURN_SPEED);
                     safeDelay(ModeConfig::ObstacleAvoid::TURN_TIME);
                     m_obstacleAvoid.isFirstEnter = true; // Reset state
                     return;
@@ -180,7 +170,7 @@ void FunctionModeManager::executeObstacleAvoidance() {
     }
     else {
         // No obstacle ahead, move forward
-        m_motorSystem->move(MovementType::Forward, m_obstacleAvoid.moveSpeed);
+        m_motorSystem->move(MovementType::Forward, ModeConfig::ObstacleAvoid::MOVE_SPEED);
     }
 }
 
@@ -219,8 +209,6 @@ void FunctionModeManager::executeTargetFollowing() {
         // Too far or lost, stop
         m_motorSystem->stop();
     }
-    
-    m_targetFollow.lastDistance = distance;
 }
 
 /**
@@ -270,28 +258,14 @@ void FunctionModeManager::executeStandby() {
     m_motorSystem->stop();
 }
 
-// ========== Configuration Functions ==========
-
-void FunctionModeManager::setLineFollowSpeed(uint8_t normalSpeed, uint8_t turnSpeed) {
-    m_lineFollow.normalSpeed = normalSpeed;
-    m_lineFollow.turnSpeed = turnSpeed;
-}
-
-void FunctionModeManager::setObstacleDistance(uint8_t distanceCm) {
-    m_obstacleAvoid.detectionDistance = distanceCm;
-}
-
 /**
  * @brief Reset Line Following State
  * 
  * Called when exiting line following mode to reset scan state
  */
 void FunctionModeManager::resetLineFollowingState() {
-    // This function provides an external reset interface
-    // Actual reset logic is in static variables of executeLineFollowing()
-    // Handled automatically via wasInLineFollowMode mechanism
-    m_lineFollow.isScanning = false;
-    m_lineFollow.lostLine = false;
+    // Line following uses local static state inside executeLineFollowing().
+    // There is no external mutable state to clear here.
 }
 
 // ========== Helper Functions ==========
