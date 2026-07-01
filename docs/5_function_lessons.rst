@@ -28,10 +28,7 @@ Lesson 5.1 Move
        <img src="_static/icon_title.png" alt="car" class="car-icon">
      </div>
 
-     <div class="text-orange">Program folder</div>
-     <div class="text-blue">
-       SmartRobotCar_Move
-     </div>
+
 
      <div class="text-orange">Function</div>
      <div class="text-blue">
@@ -45,8 +42,11 @@ Lesson 5.1 Move
 
      <div class="text-orange">How to use</div>
      <div class="text-blue">
-       1. Open SmartRobotCar_Move in Arduino IDE.<br>
-       2. Upload the code to the Arduino UNO board.<br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code location:</span> <span style="display: inline-block; color: #bb901aff; font-weight: 700; background: #fff4e8; border: 1px solid #f3cfaa; border-radius: 8px; padding: 2px 8px;">../Lesson_Code/SmartRobotCar_Move/SmartRobotCar_Move.ino</span><br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code upload method:</span> <a href="upload_arduino.html" style="color: #bb901aff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #bb901aff;">Upload Program to Arduino UNO Board</a><br><br>
+      
+      1. Open <span style="color: #bb901aff; font-weight: 700;">"SmartRobotCar_Move.ino"</span> in Arduino IDE.<br>
+      2. Upload the code to the Arduino UNO board.<br>
        3. Place the car on a safe and open surface.<br>
        4. Turn on the power and observe whether the left and right motors rotate correctly.
      </div>
@@ -70,10 +70,6 @@ Lesson 5.2 Follow
        <img src="_static/icon_title.png" alt="car" class="car-icon">
      </div>
 
-     <div class="text-orange">Program folder</div>
-     <div class="text-blue">
-       SmartRobotCar_Follow
-     </div>
 
      <div class="text-orange">Function</div>
      <div class="text-blue">
@@ -91,7 +87,10 @@ Lesson 5.2 Follow
     <img src="_static/V33.png" alt="组装示例图" style="max-width:100%; height:auto; margin-top:0px;margin-bottom:20px;">
      <div class="text-orange">How to use</div>
      <div class="text-blue">
-       1. Open SmartRobotCar_Follow in Arduino IDE.<br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code location:</span> <span style="display: inline-block; color: #bb901aff; font-weight: 700; background: #fff4e8; border: 1px solid #f3cfaa; border-radius: 8px; padding: 2px 8px;">../Lesson_Code/SmartRobotCar_Follow/SmartRobotCar_Follow.ino</span><br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code upload method:</span> <a href="upload_arduino.html" style="color: #bb901aff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #bb901aff;">Upload Program to Arduino UNO Board</a><br><br>
+      
+       1. Open <span style="color: #bb901aff; font-weight: 700;">"SmartRobotCar_Follow.ino"</span>SmartRobotCar_Follow in Arduino IDE.<br>
        2. Upload the code to the Arduino UNO board.<br>
        3. Power on the robot car.<br>
        4. Stand or place an object in front of the ultrasonic sensor and slowly move it.<br>
@@ -117,10 +116,7 @@ Lesson 5.3 Line Tracking
        <img src="_static/icon_title.png" alt="car" class="car-icon">
      </div>
 
-     <div class="text-orange">Program folder</div>
-     <div class="text-blue">
-       SmartRobotCar_LineTrack
-     </div>
+
 
      <div class="text-orange">Function</div>
      <div class="text-blue">
@@ -137,7 +133,10 @@ Lesson 5.3 Line Tracking
 
      <div class="text-orange">How to use</div>
      <div class="text-blue">
-       1. Open SmartRobotCar_LineTrack in Arduino IDE.<br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code location:</span> <span style="display: inline-block; color: #bb901aff; font-weight: 700; background: #fff4e8; border: 1px solid #f3cfaa; border-radius: 8px; padding: 2px 8px;">../Lesson_Code/SmartRobotCar_LineTrack/SmartRobotCar_LineTrack.ino</span><br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code upload method:</span> <a href="upload_arduino.html" style="color: #bb901aff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #bb901aff;">Upload Program to Arduino UNO Board</a><br><br>
+      
+       1. Open <span style="color: #bb901aff; font-weight: 700;">"SmartRobotCar_LineTrack.ino"</span> in Arduino IDE.<br>
        2. Upload the code to the Arduino UNO board.<br>
        3. Prepare a clear black line on a light background.<br>
        4. Place the robot car so that the line-tracking sensors are above the line.<br>
@@ -185,7 +184,10 @@ Lesson 5.4 Obstacle Avoidance
 
      <div class="text-orange">How to use</div>
      <div class="text-blue">
-       1. Open SmartRobotCar_Obstacle in Arduino IDE.<br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code location:</span> <span style="display: inline-block; color: #bb901aff; font-weight: 700; background: #fff4e8; border: 1px solid #f3cfaa; border-radius: 8px; padding: 2px 8px;">../Lesson_Code/SmartRobotCar_Obstacle/SmartRobotCar_Obstacle.ino</span><br>
+      <span style="color: #ec4d08ff; font-weight: 700;">Code upload method:</span> <a href="upload_arduino.html" style="color: #bb901aff; font-weight: 700; text-decoration: none; border-bottom: 2px solid #bb901aff;">Upload Program to Arduino UNO Board</a><br><br>
+      
+       1. Open <span style="color: #bb901aff; font-weight: 700;">"SmartRobotCar_Obstacle.ino"</span> in Arduino IDE.<br>
        2. Upload the code to the Arduino UNO board.<br>
        3. Place the robot car on the floor or a large table with obstacles in front of it.<br>
        4. Turn on the power.<br>
