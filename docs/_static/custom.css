@@ -257,10 +257,12 @@ p, li, .wy-nav-content {
 #infrared-remote-control > h2, #infrared-remote-control > h3, #infrared-remote-control > h4,
 #app-control > h2, #app-control > h3, #app-control > h4,
 #function-lessons > h1, #function-lessons > h2, #function-lessons > h3, #function-lessons > h4,
-#lesson-5-1-move > h2, #lesson-5-1-move > h3, #lesson-5-1-move > h4,
-#lesson-5-2-follow > h2, #lesson-5-2-follow > h3, #lesson-5-2-follow > h4,
-#lesson-5-3-line-tracking > h2, #lesson-5-3-line-tracking > h3, #lesson-5-3-line-tracking > h4,
-#lesson-5-4-obstacle-avoidance > h2, #lesson-5-4-obstacle-avoidance > h3, #lesson-5-4-obstacle-avoidance > h4,
+#lesson-1-move > h2, #lesson-1-move > h3, #lesson-1-move > h4,
+#lesson-2-rgb > h2, #lesson-2-rgb > h3, #lesson-2-rgb > h4,
+#lesson-3-servo > h2, #lesson-3-servo > h3, #lesson-3-servo > h4,
+#lesson-4-follow > h2, #lesson-4-follow > h3, #lesson-4-follow > h4,
+#lesson-5-line-tracking > h2, #lesson-5-line-tracking > h3, #lesson-5-line-tracking > h4,
+#lesson-6-obstacle-avoidance > h2, #lesson-6-obstacle-avoidance > h3, #lesson-6-obstacle-avoidance > h4,
 #summary > h2, #summary > h3, #summary > h4 {
   display: none !important;
 }
