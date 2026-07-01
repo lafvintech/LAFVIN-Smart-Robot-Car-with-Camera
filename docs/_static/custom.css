@@ -255,8 +255,14 @@ p, li, .wy-nav-content {
 #obstacle-avoidance-mode > h2, #obstacle-avoidance-mode > h3, #obstacle-avoidance-mode > h4,
 #auto-follow-mode > h2, #auto-follow-mode > h3, #auto-follow-mode > h4,
 #infrared-remote-control > h2, #infrared-remote-control > h3, #infrared-remote-control > h4,
-#app-control > h2, #app-control > h3, #app-control > h4 {
-  display: none;
+#app-control > h2, #app-control > h3, #app-control > h4,
+#function-lessons > h1, #function-lessons > h2, #function-lessons > h3, #function-lessons > h4,
+#lesson-5-1-move > h2, #lesson-5-1-move > h3, #lesson-5-1-move > h4,
+#lesson-5-2-follow > h2, #lesson-5-2-follow > h3, #lesson-5-2-follow > h4,
+#lesson-5-3-line-tracking > h2, #lesson-5-3-line-tracking > h3, #lesson-5-3-line-tracking > h4,
+#lesson-5-4-obstacle-avoidance > h2, #lesson-5-4-obstacle-avoidance > h3, #lesson-5-4-obstacle-avoidance > h4,
+#summary > h2, #summary > h3, #summary > h4 {
+  display: none !important;
 }
 .upload-header .car-icon {
   position: absolute;

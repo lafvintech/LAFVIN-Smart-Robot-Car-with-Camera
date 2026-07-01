@@ -1,4 +1,4 @@
-﻿5.FAQ And Support
+﻿6. FAQ And Support
 ===============
 
 .. raw:: html

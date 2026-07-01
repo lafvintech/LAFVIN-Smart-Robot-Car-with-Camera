@@ -7,6 +7,7 @@
 
    1_preparation
    2_assembly
-   4_upload_program/index
-   5_play_with_robot
+   3_upload_program/index
+   4_play_with_robot
+   5_function_lessons
    6_faq_and_support
