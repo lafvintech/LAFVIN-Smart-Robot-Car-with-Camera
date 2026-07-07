@@ -27,6 +27,8 @@ If you have already installed the Arduino IDE, you can skip this step and contin
    :align: center
 
 
+.. _esp32-ch340-driver:
+
 Step 2: Install CH340 Driver
 ~~~~~~~~~~~~~~~~~~
 * If your computer can detect the **USB-SERIAL CH340 (COMx)** port, it means the CH340 driver is already installed on your system, and you can skip this step directly.
@@ -349,8 +351,7 @@ Step 2: Install CH340 Driver
    :alt: CH340 Driver Download Page
    :width: 80%
    :align: center
-
-Follow the steps below to install the CH340 driver:
+:ref:`How to install the CH340 driver <esp32-ch340-driver>`
 
 step 3: Get flash download tool
 ~~~~~~~~~~~~~~~~~~

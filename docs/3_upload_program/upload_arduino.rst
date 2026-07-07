@@ -102,7 +102,50 @@ If you can't find the CH340 device in Device Manager or Arduino IDE, the driver 
    :align: center 
 
 
-Step 3: Upload Arduino UNO Main Code
+Step 3: Add Arduino Library
+----------------------------------------------
+
+* Before uploading the Arduino UNO code, please make sure the required Arduino libraries have been installed in the Arduino IDE.
+* This project requires the installation of **“FastLED“** library **"version 3.5.0"** and **Servo** library **version 1.3.0**. 
+
+install them first through **Sketch** -> **Include Library** -> **Manage Libraries...**
+
+.. image:: ../_static/P27.png  
+   :alt: Arduino IDE Port Selection Page   
+   :width: 100%
+   :align: center 
+
+Search for **"FastLED"**, select version 3.5.0, and click install. If you have already installed it, click to update to version **3.5.0.0**.
+
+.. image:: ../_static/P28.png  
+   :alt: Arduino IDE Port Selection Page   
+   :width: 100%
+   :align: center 
+
+After successful installation, the library will appear in the Library Manager of the Arduino IDE.
+
+.. image:: ../_static/P30.png
+   :alt: Arduino IDE Port Selection Page   
+   :width: 100%
+   :align: center 
+
+Search for **"Servo"**, select version 1.3.0, and click install. If you have already installed it, click to update to version **1.3.0**.
+
+.. image:: ../_static/P29.png  
+   :alt: Arduino IDE Port Selection Page   
+   :width: 100%
+   :align: center 
+
+After successful installation, the library will appear in the Library Manager of the Arduino IDE.
+
+.. image:: ../_static/P31.png
+   :alt: Arduino IDE Port Selection Page   
+   :width: 100%
+   :align: center 
+
+
+
+Step 4: Upload Arduino UNO Main Code
 ----------------------------------------------
 
 ① Load Main code into the Arduino IDE
