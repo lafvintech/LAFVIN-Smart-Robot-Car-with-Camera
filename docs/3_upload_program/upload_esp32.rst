@@ -240,7 +240,7 @@ Step 4: Upload ESP32-S3 Main Code
 
 ① Load Main code into the Arduino IDE
 
-* Launch the Arduino IDE and navigate to **File** -> **Open...** in the menu bar, then locate and select the main program **`ESP32S3_Cam_Main_V1.ino`** from your downloaded resource folder.
+* Launch the Arduino IDE and navigate to **File** -> **Open...** in the menu bar, then locate and select the main program **`ESP32S3_Cam_Main_V1.ino`** from your downloaded resource folder. `Download ESP32S3_Cam Main Code <../_static/ESP32S3_Cam_Main_V1.zip>`_
 
 
 .. image:: ../_static/P9.png  
@@ -387,7 +387,7 @@ Set the flash tool parameters as follows:
    :align: center
 
 
-① Click the **...** button to select **ESP32S3_Cam_Main_V1.merged.bin** from the resource folder we provided. 
+① Click the **...** button to select **ESP32S3_Cam_Main_V1.merged.bin** from the resource folder we provided. `Download ESP32S3_Cam_Main_V1.merged.bin <../_static/Main_Code_Flash_bin.zip>`_
    
    Note: The file path must not be excessively long or contain special characters, as this will cause the upload to fail.
 
