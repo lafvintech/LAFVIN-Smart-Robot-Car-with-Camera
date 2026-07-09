@@ -3,6 +3,8 @@ Upload Program to Arduino UNO
 
 This section provides detailed instructions on how to upload the main program to the Arduino UNO Board.
 
+.. note::
+   The main code integrates all available features, while the lesson-specific codes are standalone test scripts for individual functions.
 
 Step 1: Install Arduino IDE
 ----------------------------------------------
