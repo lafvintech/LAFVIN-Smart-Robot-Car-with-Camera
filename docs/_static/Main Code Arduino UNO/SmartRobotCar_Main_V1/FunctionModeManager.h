@@ -23,7 +23,7 @@ class MotorDriverSystem;
 namespace ModeConfig {
     // Line Follow Mode Configuration
     namespace LineFollow {
-        constexpr uint8_t NORMAL_SPEED = 100;      // Normal Speed
+        constexpr uint8_t NORMAL_SPEED = 80;      // Normal Speed
         constexpr uint8_t TURN_SPEED = 60;         // Turn Speed
         constexpr uint8_t SHARP_TURN_SPEED = 90;   // Sharp Turn Speed
         constexpr uint16_t SCAN_TIMEOUT_MS = 3000; // Scan Timeout
@@ -31,9 +31,9 @@ namespace ModeConfig {
     
     // Obstacle Avoidance Mode Configuration
     namespace ObstacleAvoid {
-        constexpr uint8_t DETECTION_DISTANCE = 20;  // Detection Distance (cm)
+        constexpr uint8_t DETECTION_DISTANCE = 18;  // Detection Distance (cm)
         constexpr uint8_t MOVE_SPEED = 70;         // Move Speed
-        constexpr uint8_t TURN_SPEED = 70;         // Turn Speed
+        constexpr uint8_t TURN_SPEED = 60;         // Turn Speed
         constexpr uint16_t BACKUP_TIME = 100;       // Backup Time (ms)
         constexpr uint16_t TURN_TIME = 50;          // Turn Time (ms)
     }
