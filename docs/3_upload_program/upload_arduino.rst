@@ -152,7 +152,7 @@ Step 4: Upload Arduino UNO Main Code
 
 ① Load Main code into the Arduino IDE
 
-* Launch the Arduino IDE and navigate to **File** -> **Open...** in the menu bar, then locate and select the main program **`SmartRobotCar_Main_V1.ino`** from your downloaded resource folder. `Download Main Code <../_static/Main_Code_Arduino_UNO.zip>`_
+* Launch the Arduino IDE and navigate to **File** -> **Open...** in the menu bar, then locate and select the main program **`SmartRobotCar_Main_V1.ino`** from your downloaded resource folder. `Download Main Code <../_static/SmartRobotCar_Main_V1.zip>`_
 
 
 .. image:: ../_static/P9.png  
