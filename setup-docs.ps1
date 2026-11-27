@@ -9,9 +9,13 @@ $docsDir = Join-Path $root "docs"
 $outputDir = Join-Path $root "_autobuild\html"
 
 function Get-PythonCommand {
+    if (Get-Command python -ErrorAction SilentlyContinue) {
+        return @("python")
+    }
+
     if (Get-Command py -ErrorAction SilentlyContinue) {
         try {
-            & py -3.11 -c "import sys; print(sys.version)"
+            & py -3.11 -c "import sys; print(sys.version)" | Out-Null
             if ($LASTEXITCODE -eq 0) {
                 return @("py", "-3.11")
             }
@@ -19,16 +23,12 @@ function Get-PythonCommand {
         }
 
         try {
-            & py -3 -c "import sys; print(sys.version)"
+            & py -3 -c "import sys; print(sys.version)" | Out-Null
             if ($LASTEXITCODE -eq 0) {
                 return @("py", "-3")
             }
         } catch {
         }
-    }
-
-    if (Get-Command python -ErrorAction SilentlyContinue) {
-        return @("python")
     }
 
     throw "Python not found. Please install Python 3.11 or newer first."
